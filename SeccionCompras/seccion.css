@@ -1,8 +1,87 @@
-.seccion-compras{
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
+
+.contenedor-compras {
+  width: 40rem;
+  height: 50rem;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.titulo-compras {
+  font-size: 1.3rem;
+  text-align: center;
+  color: #333;
+  margin: 0;
+}
+
+.total-monto {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #0a74da;
+  margin: 0;
+}
+
+
+.contenedor-editables {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.editable-nombre,
+.editable-precio {
+  flex: 1 1 130px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  border-radius: 10px;
+  min-height: 35px;
+  cursor: text;
+  outline: none;
+}
+
+.editable-nombre:focus,
+.editable-precio:focus {
+  border-color: #0a74da;
+  background: #fff;
+}
+
+
+.btn-agregar {
+  background: #0a74da;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-agregar:hover {
+  background: #085bb1;
+}
+
+
+.lista-compras {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.lista-compras .item {
+  display: flex;
+  justify-content: space-between;
+  background: #f4f6f8;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.95rem;
 }

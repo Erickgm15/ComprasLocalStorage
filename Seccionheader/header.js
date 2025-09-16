@@ -2,8 +2,8 @@ function crearHeader() {
     
     // Crear el header
     let header1 = document.createElement('div');
-    header1.className = "header";
-    header1.innerText = "TOTAL DE COMPRAS ";
+    header1.className = "div-header";
+    header1.innerText = "COMPRAS ";
     
 
     return header1;
