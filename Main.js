@@ -4,6 +4,7 @@ import { seccion2 } from "./SeccionCompras/seccion.js";
 
 function seccion1 (){
    let seccion = document.createElement('section');
+   seccion.id = "contenido";   // aquí es donde se hace la captura
 
    // usar obtenerProductos()
    let listaProductos = obtenerProductos();
@@ -16,7 +17,9 @@ function seccion1 (){
    console.log(listaProductos);
 
    document.body.appendChild(crearHeader());
-   document.body.appendChild(seccion2());
+
+
+   seccion.appendChild(seccion2());
 
    return seccion;
 }

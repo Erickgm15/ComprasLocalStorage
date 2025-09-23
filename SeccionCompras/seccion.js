@@ -4,25 +4,25 @@ function seccion2() {
     let contenedor = document.createElement('div');
     contenedor.className = "contenedor-compras";
 
-    // ----- Título -----
+    //  Título 
     let titulo = document.createElement('h2');
     titulo.className = "titulo-compras";
     titulo.innerText = "TOTAL DE COMPRAS";
     contenedor.appendChild(titulo);
 
-    // ----- Total -----
+    //  Total 
     let total = document.createElement('h3');
     total.className = "total-monto";
     total.innerText = "Q. 00.00";
     contenedor.appendChild(total);
 
-    // ----- Subtítulo -----
+    //  Subtítulo 
     let subTitulo = document.createElement('h3');
     subTitulo.className = "subtitulo-compras";
     subTitulo.innerText = "Lista de Compras";
     contenedor.appendChild(subTitulo);
 
-    // ----- Contenedor de cajas 
+    // Contenedor de cajas 
     let contEditable = document.createElement('div');
     contEditable.className = "contenedor-editables";
 
@@ -48,27 +48,41 @@ function seccion2() {
     //  Contenedor para los productos 
     let contListaProductos = document.createElement('div');
     contListaProductos.className = "lista-productos";
+    contListaProductos.id = "contenido"; 
     contenedor.appendChild(contListaProductos);
 
-    //  Evento botón Agregar 
+
+ const actualizarTotal = () => {
+    const suma = obtenerProductos().reduce(
+      (acc, p) => acc + (parseFloat(p.precio) || 0),
+      0
+    );
+    total.innerText = `Q. ${suma.toFixed(2)}`;
+  };
+  actualizarTotal();
+
+    // Evento botón Agregar
     botonAgregar.addEventListener('click', () => {
         let nombre = nombreEditable.innerText; 
-        let precio = precioEditable.innerText;
+        let precio = parseFloat(precioEditable.innerText) || 0;
 
         // Crear div del producto
         let item = document.createElement('div');
         item.className = "item-producto";
-        item.innerText = `${nombre} - Q. ${precio}`;
+        item.innerText = `${nombre} - Q. ${precio.toFixed(2)}`;
         contListaProductos.appendChild(item);
 
         // Guardar en localStorage
         let carritoLocalStorage = obtenerProductos();
         carritoLocalStorage.push({ nombre, precio });
         guardarProductos(carritoLocalStorage);
+         actualizarTotal();
 
-        console.log("Producto agregado al Local Storage:", { nombre, precio });
-
+     
     });
+    
+
+
 
     return contenedor;
 }
